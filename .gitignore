@@ -1,0 +1,12 @@
+node_modules
+dist
+.firebase
+.DS_Store
+Thumbs.db
+client/node_modules
+client/dist
+# root .gitignore
+server/.env
+server/serviceAccountKey.json
+client/.env
+client/.env.local

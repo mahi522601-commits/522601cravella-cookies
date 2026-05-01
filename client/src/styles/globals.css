@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-cream: 245 236 215;
+  --brand-beige: 237 217 176;
+  --brand-brown: 107 58 42;
+  --brand-dark: 59 31 20;
+  --brand-gold: 201 136 42;
+  --brand-white: 255 253 248;
+  --brand-light: 250 243 232;
+  --brand-success: 45 122 79;
+  --brand-error: 185 28 28;
+}
+
+@layer base {
+  * {
+    @apply border-brand-brown/10;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-white font-body text-brand-dark antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(201, 136, 42, 0.15), transparent 28%),
+      radial-gradient(circle at top right, rgba(107, 58, 42, 0.1), transparent 32%),
+      linear-gradient(180deg, rgba(255, 253, 248, 1) 0%, rgba(250, 243, 232, 1) 100%);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight text-brand-dark;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    @apply outline-none;
+  }
+
+  ::selection {
+    @apply bg-brand-gold/30 text-brand-dark;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply font-display text-3xl font-semibold text-brand-dark sm:text-4xl;
+  }
+
+  .section-kicker {
+    @apply text-sm font-bold uppercase tracking-[0.32em] text-brand-brown/70;
+  }
+
+  .decorative-underline {
+    @apply mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-brand-gold via-brand-brown to-transparent;
+  }
+
+  .glass-panel {
+    @apply rounded-3xl border border-white/60 bg-white/75 shadow-warm backdrop-blur-md;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-brand-brown/15 bg-brand-light px-4 py-3 text-brand-dark placeholder:text-brand-brown/45 focus:border-brand-brown focus:ring-2 focus:ring-brand-gold/25;
+  }
+
+  .textarea-field {
+    @apply input-field min-h-28 resize-y;
+  }
+
+  .card-surface {
+    @apply rounded-3xl border border-brand-brown/10 bg-white/90 shadow-warm;
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(237, 217, 176, 0.35) 25%,
+      rgba(255, 255, 255, 0.6) 37%,
+      rgba(237, 217, 176, 0.35) 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(59, 31, 20, 0.75), rgba(59, 31, 20, 0.32) 55%, rgba(59, 31, 20, 0.55)),
+      linear-gradient(180deg, rgba(59, 31, 20, 0.1), rgba(59, 31, 20, 0.55));
+  }
+
+  .bg-noise {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(107, 58, 42, 0.08) 1px, transparent 0),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0));
+    background-size: 18px 18px, auto;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(245, 236, 215, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(107, 58, 42, 0.36);
+  border-radius: 999px;
+}
